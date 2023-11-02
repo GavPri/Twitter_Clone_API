@@ -1,4 +1,5 @@
 from rest_framework.views import APIView
+from rest_framework import status
 from rest_framework.response import Response
 from .models import Account
 from .serializers import AccountListSerializer
@@ -29,3 +30,12 @@ class AccountDetail(APIView):
         account = self.get_object(pk)
         serializer = AccountListSerializer(account)
         return Response(serializer.data)
+
+    def put(self, request, pk):
+        # Function to add put requests/edit profiles
+        account = self.get_object(pk)
+        serializer = AccountListSerializer(account, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
