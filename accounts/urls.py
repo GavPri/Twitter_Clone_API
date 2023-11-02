@@ -3,5 +3,5 @@ from accounts import views
 
 # Patterns
 urlpatterns = [
-    path('profiles/', views.AccountList.as_aview(), )
+    path('accounts/', views.AccountList.as_view(), )
 ]

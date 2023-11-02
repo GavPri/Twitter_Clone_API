@@ -7,5 +7,5 @@ from .models import Account
 # Get request to view account list. 
 class AccountList(APIView):
     def get(self, request):
-        accounts = Accounts.objects.all()
+        accounts = Account.objects.all()
         return Response(accounts)
