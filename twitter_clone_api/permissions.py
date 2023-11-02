@@ -1,2 +1,9 @@
 from rest_framework import permissions
 
+
+class IsOwnerOrReadOnly(permissions.BasePermission):
+    # Permission so only owner can update the profile.
+    def has_object_permissions(self, request, view, obj):
+        if request.method in permissions.SAFE_METHODS:
+            return True
+        return obj.owner == request.user
