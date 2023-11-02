@@ -9,4 +9,6 @@ from .serializers import AccountListSerializer
 class AccountList(APIView):
     def get(self, request):
         accounts = Account.objects.all()
-        return Response(accounts)
+        # Serializer instance 
+        serializer = AccountListSerializer(accounts, many=True)
+        return Response(serializer.data)
