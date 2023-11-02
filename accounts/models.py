@@ -19,3 +19,7 @@ class Account(models.Model):
 
     def __str__(self):
         return f"{self.owner}'s profile"
+
+def create_account(sender, instance, created, **kwargs):
+    if created:
+        Account.objects.create(ownver=instance)
