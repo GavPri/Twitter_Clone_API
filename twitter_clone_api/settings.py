@@ -17,7 +17,7 @@ if os.path.exists('env.py'):
     import env
 
 CLOUDINARY_STORGARE = {
-    'CLOUDINARY_URL' : os.environ.GET('CLOUDINARY_URL')
+    'CLOUDINARY_URL' : os.environ.get('CLOUDINARY_URL')
 }
 
 MEDIA_URL = '/media/'
@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+
+    'accounts',
 ]
 
 MIDDLEWARE = [
