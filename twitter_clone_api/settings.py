@@ -16,12 +16,12 @@ import os
 if os.path.exists('env.py'):
     import env
 
-CLOUDINARY_STORGARE = {
+CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL' : os.environ.get('CLOUDINARY_URL')
 }
 
 MEDIA_URL = '/media/'
-DEFAULT_FILE_STORAGE = 'cloudinary_storgage.storage.MediaCloudinaryStorage'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-tz92hzff)w&(3w=-%oi2#md6wrz38xg0+x90ta)3*#)37%f^&y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us105.gitpod.io']
 
 
 # Application definition
