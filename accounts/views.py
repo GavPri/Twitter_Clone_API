@@ -23,3 +23,9 @@ class AccountDetail(APIView):
             return Account
         except Account.DoesNotExist:
             raise Http404
+
+    # Function to return account by id
+    def get(self, request, pk):
+        account = self.get.object(pk)
+        serializer = AccountListSerializer(account)
+        return Response(serializer.data)
