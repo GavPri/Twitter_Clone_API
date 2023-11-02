@@ -1,14 +1,14 @@
 from django.db import models
-from django.db.models.signals, import post_save
+from django.db.models.signals import post_save
 from django.contrib.auth.models import User
 # Create your models here.
 
 
 class Account(models.Model):
-    owner = models.OneToOneFiled(User, on_delete=models.CASCADE)
+    owner = models.OneToOneField(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    name = models.CharField(max_length=255, blank=true)
+    name = models.CharField(max_length=255, blank=True)
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to = 'images/', default='../default_profile_picture_dcasmd'
