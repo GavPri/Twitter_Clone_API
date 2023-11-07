@@ -34,3 +34,10 @@ class TweetList(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         # If data is invalid.
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class TweetDetail(APIView):
+    permission_classes = [
+        permissions = IsAuthenticatedOrReadOnly
+    ]
+    serializer_class = TweetListSerializer
