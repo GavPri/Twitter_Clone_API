@@ -7,9 +7,23 @@ from .serializers import TweetListSerializer
 # Create your views here.
 
 class TweetList(APIView):
+    # For user form.
+    serializer_class = TweetListSerializer
     def get(self, request):
         tweets = Tweet.objects.all()
         serializer = TweetListSerializer(
             tweets, many=True, context={'request':request}
         )
         return Response(serializer.data)
+
+    def post(self, request):
+        # Deserialize the data.
+        serializer = TweetListSerializer(
+            data = request.data, context = {'request': request}
+        )
+        # If data is valid.
+        if serializer.is_valid():
+            serializer.save(owner=request.user)
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        # If data is invalid.
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

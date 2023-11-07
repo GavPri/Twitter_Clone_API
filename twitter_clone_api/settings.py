@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-tz92hzff)w&(3w=-%oi2#md6wrz38xg0+x90ta)3*#)37%f^&y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us105.gitpod.io']
+ALLOWED_HOSTS = ['8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us106.gitpod.io']
 
 
 # Application definition
