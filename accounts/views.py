@@ -21,7 +21,7 @@ class AccountDetail(APIView):
     # Setting form to update account details
     serializer_class = AccountListSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    # Function to handle request for account that does not exists.
+
     def get_object(self, pk):
         try:
             account = Account.objects.get(pk=pk)

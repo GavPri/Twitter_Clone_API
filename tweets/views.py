@@ -37,7 +37,20 @@ class TweetList(APIView):
 
 
 class TweetDetail(APIView):
-    permission_classes = [
-        permissions = IsAuthenticatedOrReadOnly
-    ]
+    permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TweetListSerializer
+    
+    # Get tweet by ID
+    def get_object(self, pk):
+        try:
+            tweet = Tweet.objects.get(pk=pk)
+            self.check_object_permissions(self.request, tweet)
+            return tweet
+        except Tweet.DoesNotExist:
+            raise Http404
+
+    def get(self, request, pk):
+        tweet = self.get_object(pk)
+        serializer = TweetListSerializer(
+            tweet, context={'request':request})
+        return Response(serializer.data)
