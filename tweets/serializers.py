@@ -32,7 +32,7 @@ class TweetListSerializer(serializers.ModelSerializer):
 
     # Meta Classes 
     class Meta:
-        model = Account
+        model = Tweet
         fields = [
           'id', 'owner', 'created_at', 'updated_at',
           'content', 'image', 'is_owner',

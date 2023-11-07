@@ -21,4 +21,5 @@ urlpatterns = [
     # Login/Logout URLs 
     path('api-auth/', include('rest_framework.urls')),
     path('', include('accounts.urls')),
+    path('', include('tweets.urls')), 
 ]
