@@ -4,6 +4,7 @@ from rest_framework.views import APIView
 from .models import Tweet
 from .serializers import TweetListSerializer
 from django.http import Http404
+from twitter_clone_api.permissions import IsOwnerOrReadOnly
 
 
 # Create your views here.
