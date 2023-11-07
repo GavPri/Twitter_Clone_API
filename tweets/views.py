@@ -9,6 +9,10 @@ from .serializers import TweetListSerializer
 class TweetList(APIView):
     # For user form.
     serializer_class = TweetListSerializer
+    # Permissions 
+    permission_class = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
     def get(self, request):
         tweets = Tweet.objects.all()
         serializer = TweetListSerializer(
