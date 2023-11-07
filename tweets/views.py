@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Tweet
 from .serializers import TweetListSerializer
+from django.http import Http404
+
 
 # Create your views here.
 
@@ -10,7 +12,7 @@ class TweetList(APIView):
     # For user form.
     serializer_class = TweetListSerializer
     # Permissions 
-    permission_class = [
+    permission_classes  = [
         permissions.IsAuthenticatedOrReadOnly
     ]
     def get(self, request):
