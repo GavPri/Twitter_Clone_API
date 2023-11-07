@@ -54,3 +54,16 @@ class TweetDetail(APIView):
         serializer = TweetListSerializer(
             tweet, context={'request':request})
         return Response(serializer.data)
+
+    # Edit tweets/put method
+    def put(self, request, pk):
+        # Function to add put requests/edit profiles
+        tweet = self.get_object(pk)
+        serializer = TweetListSerializer(tweet, data=request.data, context={'request':request})
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
+
+    # Delete Method.
+    
