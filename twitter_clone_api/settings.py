@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     'accounts',
     'tweets',
+    'replies',
 ]
 
 MIDDLEWARE = [
