@@ -12,6 +12,7 @@ class RepliesSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
+
     # Meta Classes
     class Meta:
         model = Replies
