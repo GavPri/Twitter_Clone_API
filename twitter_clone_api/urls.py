@@ -24,4 +24,5 @@ urlpatterns = [
     path("", include("tweets.urls")),
     path("", include("replies.urls")),
     path("", include("likes.urls")),
+    path("", include("followers.urls")),
 ]
