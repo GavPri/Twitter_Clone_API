@@ -57,7 +57,6 @@ class TweetDetail(APIView):
 
     # Edit tweets/put method
     def put(self, request, pk):
-        # Function to add put requests/edit profiles
         tweet = self.get_object(pk)
         serializer = TweetListSerializer(tweet, data=request.data, context={'request':request})
         if serializer.is_valid():
@@ -66,4 +65,9 @@ class TweetDetail(APIView):
         return Response(serializer.errors, status = status.HTTP_400_BAD_REQUEST)
 
     # Delete Method.
-    
+    def delete(self, request, pk):
+        tweet = self.get_object(pk)
+        tweet.delete()
+        return Response(
+            status=status.HTTP_204_NO_CONTENT
+        )
