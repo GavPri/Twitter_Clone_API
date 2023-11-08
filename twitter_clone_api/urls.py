@@ -22,4 +22,5 @@ urlpatterns = [
     path('api-auth/', include('rest_framework.urls')),
     path('', include('accounts.urls')),
     path('', include('tweets.urls')), 
+    path('', include('replies.urls')),
 ]
