@@ -10,3 +10,9 @@ class FollowersList(generics.ListCreateAPIView):
     serializer_class = FollowerSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Followers.objects.all()
+
+
+class FollowersDetail(generics.RetrieveDestroyAPIView):
+    serializer_class = FollowerSerializer
+    permission_classes = [IsOwnerOrReadOnly]
+    queryset = Followers.objects.all()
