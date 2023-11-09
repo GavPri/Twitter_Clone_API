@@ -8,7 +8,7 @@ from django.db.models import Count
 
 class AccountList(generics.ListAPIView):
     queryset = accounts = Account.objects.annotate(
-        tweet_count=Count("owner__post", distinct=True),
+        tweet_count=Count("owner__tweet", distinct=True),
         followers_count=Count("owner__followed", distinct=True),
         following_count=Count("owner__following", distinct=True),
     ).order_by("-created_at")
