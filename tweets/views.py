@@ -12,7 +12,14 @@ class TweetList(generics.ListCreateAPIView):
     queryset = Tweet.objects.annotate(
         likes_count=Count("likes", distinct=True),
         replies_count=Count("replies", distinct=True),
-    ).order_by('-created_at')
+    ).order_by("-created_at")
+    filter_backends = [filters.OrderingFilter]
+    ordering_fields = [
+        "likes_count",
+        "replies_count",
+        "likes__created_at",
+        "replies__created_at",
+    ]
 
     def perform_create(self, serializer):
         serializer.save(owner=self.user.request)
@@ -21,4 +28,7 @@ class TweetList(generics.ListCreateAPIView):
 class TweetDetail(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = [IsOwnerOrReadOnly]
     serializer_class = TweetListSerializer
-    queryset = Tweet.objects.all()
+    queryset = Tweet.objects.annotate(
+        likes_count=Count("likes", distinct=True),
+        replies_count=Count("replies", distinct=True),
+    ).order_by("-created_at")
