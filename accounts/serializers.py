@@ -20,6 +20,7 @@ class AccountListSerializer(serializers.ModelSerializer):
             following = Followers.objects.filter(owner=user, followed=obj.owner).first()
             print(following)
             return following.id if following else None
+        return None
 
     class Meta:
         model = Account
