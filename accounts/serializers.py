@@ -8,6 +8,9 @@ class AccountListSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
     following_id = serializers.SerializerMethodField()
+    post_count = serializers.ReadOnlyField()
+    followers_count = serializers.ReadOnlyField()
+    following_count = serializers.ReadOnlyField()
 
     # Check for profile ownership
     def get_is_owner(self, obj):
