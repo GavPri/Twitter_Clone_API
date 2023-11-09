@@ -10,6 +10,8 @@ class TweetListSerializer(serializers.ModelSerializer):
     profile_id = serializers.ReadOnlyField(source="owner.profile.id")
     profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
     like_id = serializers.SerializerMethodField()
+    likes_count = serializers.ReadOnlyField()
+    replies_count = serializers.ReadOnlyField()
 
     def get_like_id(self, obj):
         user = self.context["request"].user
@@ -47,4 +49,6 @@ class TweetListSerializer(serializers.ModelSerializer):
             "profile_image",
             "content",
             "like_id",
+            "likes_count",
+            "replies_count",
         ]
