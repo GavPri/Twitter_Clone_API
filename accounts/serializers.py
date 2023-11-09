@@ -14,6 +14,12 @@ class AccountListSerializer(serializers.ModelSerializer):
         request = self.context["request"]
         return request.user == obj.owner
 
+    def get_following_id(self, obj):
+        user = self.context["request"].user
+        if user.is_authenticated:
+            following = Followers.objects.filter(owner=user, followed=obj.owner).first()
+            print(following)
+
     class Meta:
         model = Account
         fields = [
