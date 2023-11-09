@@ -1,10 +1,8 @@
-from rest_framework import generics, status, permissions
-from rest_framework.response import Response
-from rest_framework.views import APIView
+from rest_framework import generics, permissions, filters
 from .models import Tweet
 from .serializers import TweetListSerializer
-from django.http import Http404
 from twitter_clone_api.permissions import IsOwnerOrReadOnly
+from django.db.models import Count
 
 
 # Create your views here.
