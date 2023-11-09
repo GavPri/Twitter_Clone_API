@@ -9,7 +9,10 @@ from django.db.models import Count
 class TweetList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     serializer_class = TweetListSerializer
-    queryset = Tweet.objects.all()
+    queryset = Tweet.objects.annotate(
+        likes_count=Count("likes", distinct=True),
+        replies_count=Count("replies", distinct=True),
+    ).order_by('-created_at')
 
     def perform_create(self, serializer):
         serializer.save(owner=self.user.request)
