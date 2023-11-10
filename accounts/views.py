@@ -16,7 +16,10 @@ class AccountList(generics.ListAPIView):
     serializer_class = AccountListSerializer
     filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
     filterset_fields = [
+        # get all accounts following an account by id
         "owner__following__followed__account",
+        # get all accounts followed by an account
+        "owner__followed__owner__account",
     ]
     ordering_fields = [
         "tweet_count",
