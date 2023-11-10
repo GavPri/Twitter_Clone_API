@@ -1,5 +1,4 @@
 from django.contrib.humanize.templatetags.humanize import naturaltime
-
 from rest_framework import serializers
 from replies.models import Replies
 

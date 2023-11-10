@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Tweet
 from likes.models import Likes
+from django.contrib.humanize.templatetags.humanize import naturaltime
 
 
 # Tweet List Serializer
@@ -12,6 +13,8 @@ class TweetListSerializer(serializers.ModelSerializer):
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     replies_count = serializers.ReadOnlyField()
+    created_at = serializers.SerializerMethodField()
+    updated_at = serializers.SerializerMethodField()
 
     def get_like_id(self, obj):
         user = self.context["request"].user
@@ -19,6 +22,12 @@ class TweetListSerializer(serializers.ModelSerializer):
             like = Likes.objects.filter(owner=user, tweet=obj).first()
             return like.id if like else None
         return None
+
+    def get_created_at(self, obj):
+        return naturaltime(obj.created_at)
+
+    def get_updated_at(self, obj):
+        return naturaltime(obj.updated_at)
 
     # Code to validate images
     def validate_image(self, value):
@@ -42,6 +51,7 @@ class TweetListSerializer(serializers.ModelSerializer):
             "id",
             "owner",
             "created_at",
+            "updated_at",
             "content",
             "image",
             "is_owner",
