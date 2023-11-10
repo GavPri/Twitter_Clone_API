@@ -66,7 +66,7 @@ DEBUG = "DEV" in os.environ
 ALLOWED_HOSTS = [
     "8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us106.gitpod.io",
     "localhost",
-    os.environ.get("ALLOWED_HOSTS"),
+    os.environ.get("ALLOWED_HOST"),
 ]
 
 
