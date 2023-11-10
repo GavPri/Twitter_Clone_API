@@ -20,6 +20,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     # Login/Logout URLs
     path("api-auth/", include("rest_framework.urls")),
+    path("dj-rest-auth/", include("dj_rest_auth.urls")),
     path("", include("accounts.urls")),
     path("", include("tweets.urls")),
     path("", include("replies.urls")),
