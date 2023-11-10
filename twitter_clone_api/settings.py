@@ -34,6 +34,8 @@ REST_FRAMEOWRK = {
     ]
 }
 
+REST_USE_JWT = True
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
