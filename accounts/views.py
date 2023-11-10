@@ -3,6 +3,7 @@ from .models import Account
 from .serializers import AccountListSerializer
 from twitter_clone_api.permissions import IsOwnerOrReadOnly
 from django.db.models import Count
+from django_filters.rest_framework import DjangoFilterBackend
 # Create your views here.
 
 
@@ -13,7 +14,10 @@ class AccountList(generics.ListAPIView):
         following_count=Count("owner__following", distinct=True),
     ).order_by("-created_at")
     serializer_class = AccountListSerializer
-    filter_backends = [filters.OrderingFilter]
+    filter_backends = [filters.OrderingFilter, DjangoFilterBackend]
+    filterset_fields = [
+        "owner__following__followed__account",
+    ]
     ordering_fields = [
         "tweet_count",
         "followers_count",
