@@ -36,7 +36,11 @@ REST_FRAMEOWRK = {
 
 REST_USE_JWT = True
 JWT_AUTH_SECURE = True
-JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
+JWT_AUTH_REFRESH_COOKIE = "my-refresh-token"
+
+REST_AUTH_SERIALIZERS = {
+    "USER_DETAILS_SERIALIZERS": "twitter_clone_api.CurrentUserSerializer"
+}
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
