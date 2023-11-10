@@ -62,7 +62,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
-    "8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us106.gitpod.io, 'localhost', 'twitter-ci-4eb0a43581b7.herokuapp.com']"
+    "8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us106.gitpod.io",
+    "localhost",
+    "twitter-ci-4eb0a43581b7.herokuapp.com",
 ]
 
 
