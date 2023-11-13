@@ -51,7 +51,7 @@ JWT_AUTH_REFRESH_COOKIE = "my-refresh-token"
 JWT_AUTH_SAMESITE = "None"
 
 REST_AUTH_SERIALIZERS = {
-    "USER_DETAILS_SERIALIZERS": "twitter_clone_api.CurrentUserSerializer"
+    "USER_DETAILS_SERIALIZERS": "twitter_clone_api.serializers.CurrentUserSerializer"
 }
 
 # Quick-start development settings - unsuitable for production
@@ -64,7 +64,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
-    "8000-gavpri-twittercloneapi-hoi72s6puk8.ws-us106.gitpod.io",
+    "8000-gavpri-twittercloneapi-lw4jg488t5b.ws-us106.gitpod.io",
     "localhost",
     os.environ.get("ALLOWED_HOST"),
 ]
