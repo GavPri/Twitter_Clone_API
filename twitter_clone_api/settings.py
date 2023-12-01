@@ -64,7 +64,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
-    "8000-gavpri-twittercloneapi-lw4jg488t5b.ws-us106.gitpod.io",
+    '8000-gavpri-twittercloneapi-mwss4exeglu.ws-eu106.gitpod.io',
     "localhost",
     os.environ.get("ALLOWED_HOST"),
 ]
@@ -85,7 +85,6 @@ INSTALLED_APPS = [
     "django_filters",
     "rest_framework.authtoken",
     "dj_rest_auth",
-    'rest_auth'
     "django.contrib.sites",
     "allauth",
     "allauth.account",
