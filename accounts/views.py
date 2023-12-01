@@ -34,7 +34,7 @@ class AccountDetail(generics.RetrieveUpdateAPIView):
     # Setting form to update account details
     serializer_class = AccountListSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = accounts = Account.objects.annotate(
+    queryset = Account.objects.annotate(
         tweet_count=Count("owner__tweet", distinct=True),
         followers_count=Count("owner__followed", distinct=True),
         following_count=Count("owner__following", distinct=True),
