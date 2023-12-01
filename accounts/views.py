@@ -8,7 +8,7 @@ from django_filters.rest_framework import DjangoFilterBackend
 
 
 class AccountList(generics.ListAPIView):
-    queryset = Account.objects.annotate(
+    queryset =Account.objects.annotate(
         tweet_count=Count("owner__tweet", distinct=True),
         followers_count=Count("owner__followed", distinct=True),
         following_count=Count("owner__following", distinct=True),
