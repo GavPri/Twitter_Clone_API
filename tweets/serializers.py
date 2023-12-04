@@ -8,8 +8,8 @@ from django.contrib.humanize.templatetags.humanize import naturaltime
 class TweetListSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
     is_owner = serializers.SerializerMethodField()
-    profile_id = serializers.ReadOnlyField(source="owner.profile.id")
-    profile_image = serializers.ReadOnlyField(source="owner.profile.image.url")
+    account_id = serializers.ReadOnlyField(source="owner.account.id")
+    account_image = serializers.ReadOnlyField(source="owner.account.image.url")
     like_id = serializers.SerializerMethodField()
     likes_count = serializers.ReadOnlyField()
     replies_count = serializers.ReadOnlyField()
