@@ -37,7 +37,7 @@ class TweetList(generics.ListCreateAPIView):
     search_fields = ["owner__username", "content"]
 
     def perform_create(self, serializer):
-        serializer.save(owner=self.user.request)
+        serializer.save(owner=self.request.user)
 
 
 class TweetDetail(generics.RetrieveUpdateDestroyAPIView):
