@@ -1,39 +1,74 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Twitter Clone API
 
-Welcome,
-
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
-
-## Codeanywhere Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
-
-`python3 -m http.server`
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
-
-`http_server`
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Project Description
 
 ---
 
-Happy coding!
+Twitter clone is a social media platform. Designed for users to share their thoughts, opinions, or best moments. The App will be made using react in the front end, this is the Django Rest Framework API for the app.
+
+## Manual Testing
+
+---
+
+Manual testing showed that:
+
+- Logged-out users ******************can not:******************
+    - Create a tweet.
+    - Like a tweet.
+    - Reply to a tweet
+    - Follow a user
+- Logged-out users ********can :********
+    - View a list of tweets
+    - View individual tweets.
+    - View account details
+    - View a list of accounts.
+    - View tweet replies.
+    
+    ---
+    
+- Logged-in users **can:**
+    - Create a tweet.
+    - Like a tweet.
+    - Reply to a tweet.
+    - Follow a user.
+    - Edit their tweets.
+    - Edit their replies.
+    - View a list of tweets.
+    - View individual tweets.
+    - View account details.
+    - View a list of accounts.
+    - View tweet replies.
+- Logged-in users **************can not**************:
+    - Edit another user's tweet
+    - Edit another user profile
+    - Edit another user's response
+    - Edit another user likes
+
+## Deployment on Heroku.
+
+---
+
+- set the following environment variables:
+    - CLIENT_ORIGIN
+    - CLOUDINARY_URL
+    - DATABASE_URL
+    - DISABLE_COLLECTSTATIC
+    - SECRET_KEY
+- installed the following libraries to handle database connection:
+    - psycopg2
+    - dj-database-url
+- configured dj-rest-auth library for JWTs
+- set allowed hosts
+- configured CORS:
+    - set allowed_origins
+- set default renderer to JSON
+- added Procfile with release and web commands
+- gitignored the env.py file
+- generated requirements.txt
+- deployed to Heroku.
+
+## Credits.
+
+---
+
+The code used in this API was heavily inspired by the course content from Code Institute. In particular, the DRF API repository. Which can be found [here.](https://github.com/Code-Institute-Solutions/drf-api)
