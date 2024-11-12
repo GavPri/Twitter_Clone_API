@@ -66,6 +66,7 @@ DEBUG = "DEV" in os.environ
 
 ALLOWED_HOSTS = [
     '8000-gavpri-twittercloneapi-sysj1iqnvs1.ws-eu116.gitpod.io',
+    'not-twitter-api-d529a3237774.herokuapp.com'
     "localhost",
     os.environ.get("ALLOWED_HOST"),
 ]
